@@ -1,0 +1,12 @@
+<launch>
+
+  <node name="recognizer" pkg="voicecontrol" type="recognizer.py" output="log">
+    <param name="lm" value="$(find voicecontrol)/demo/voice_cmd.lm"/>
+    <param name="dict" value="$(find voicecontrol)/demo/voice_cmd.dic"/>
+  </node>
+
+  <node name="voice_cmd_vel" pkg="voicecontrol" type="voice_cmd_vel.py" output="screen" launch-prefix="xterm -e">
+    <remap from="cmd_vel" to="/mobile_base/commands/velocity"/>
+ </node>`
+
+</launch>
